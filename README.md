@@ -21,6 +21,8 @@ Nota: El paquete `rpcbind` incluye la herramienta `rpcgen` necesaria para genera
 
 ## Compilación
 
+Nota: Inicialmente ya se encuentran compilados los archivos necesarios para usarlo, si desea probarlo se puede saltar directamente al apartado de `uso`.
+
 Para compilar el programa, ejecuta el script de compilación:
 
 ```
@@ -57,7 +59,7 @@ Si el servidor está en otra máquina, reemplaza `localhost` con la IP correspon
 ./prueba_automatizada.sh <cantidad_clientes>
 ```
 
-Nota: `<cantidad_clientes>` es un parametro opcional que indica la cantidad de clientes con la cual desea realizar la prueba.
+Nota: `<cantidad_clientes>` es un parametro opcional que indica la cantidad de clientes con la cual desea realizar la prueba. Por defecto la realiza con 5 clientes.
 
 
 ### Funcionamiento
