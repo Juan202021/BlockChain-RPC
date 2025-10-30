@@ -15,6 +15,7 @@ static long cant_workers = 5;
 static unsigned long cant_clientes_actuales = 0;
 static unsigned long cant_por_worker = 0;
 static unsigned long valor_actual = 0;
+static int relleno_encontrado = 0;
 
 char *read_text_file() {
     if (FILE_NAME == NULL) return NULL;
@@ -58,11 +59,14 @@ tipo_salida * blockchainprocedure_1_svc(void *argp, struct svc_req *rqstp) {
     if (cant_clientes_actuales >= cant_workers) {
         salida.texto = "-1";
         return &salida; // Máximo de clientes alcanzado
+    } else if (relleno_encontrado) {
+        salida.texto = "-2";
+        return &salida; // Relleno ya encontrado
     }
 
     // Inicializar una vez
     if (!initialized) {
-        cant_por_worker = pow(10, cant_ceros * cant_ceros) / cant_workers;
+        cant_por_worker = pow(10, cant_ceros) / cant_workers;
         initialized = 1;
     }
 
@@ -110,6 +114,7 @@ void * enviar_resultado_1_svc(resultado_hash *argp, struct svc_req *rqstp) {
     printf("\nCliente reportó resultado:\n");
     printf("  Relleno Encontrado: %s\n", argp->encontrado ? "Sí" : "No");
     if (argp->encontrado){
+        relleno_encontrado = 1; // Marca que ya se encontró el relleno
         printf("  Relleno: %lu\n", argp->relleno);
         
         snprintf(buffer, sizeof(buffer), "%s%lu", texto_buf, argp->relleno);

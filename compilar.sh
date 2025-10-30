@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Cambiar al directorio del proyecto
-cd "/home/gon/JAristizabal/U/TrabajosU/Sistemas distribuidos/c/BlockChain-RPC"
-
 # Generar los archivos RPC
 echo "Generando archivos RPC..."
 rpcgen blockchain.x

@@ -89,9 +89,12 @@ int main(int argc, char **argv) {
         printf("Se alcanzó el número máximo de workers permitidos por el servidor.\n");
         clnt_destroy(cl);
         return 0;
+    } else if (strcmp(outp->texto, "-2") == 0) {
+        printf("El relleno ya ha sido encontrado por otro worker.\n");
+        clnt_destroy(cl);
+        return 0;
     }
-
-    printf("Texto: '%s'\n", outp->texto);
+    //printf("Texto: '%s'\n", outp->texto);
 
     unsigned long relleno = iterador(outp->cant_ceros, outp->texto, outp->inicio, outp->final);
 
