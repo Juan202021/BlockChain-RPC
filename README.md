@@ -9,12 +9,12 @@ Para ejecutar este programa necesitas tener instalado:
 - Compilador GCC
 - Librería RPC (tirpc)
 - OpenSSL y sus librerías de desarrollo
-- make (opcional)
 - rpcgen (generador de código RPC)
+- build-essential (Herramientas básicas como make, g++, etc.)
 
 En sistemas basados en Debian/Ubuntu, puedes instalar las dependencias con:
 ```
-sudo apt-get install gcc libtirpc-dev libssl-dev make rpcbind
+sudo apt-get install gcc libtirpc-dev libssl-dev rpcbind build-essential
 ```
 
 Nota: El paquete `rpcbind` incluye la herramienta `rpcgen` necesaria para generar los archivos RPC.
