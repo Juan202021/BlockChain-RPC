@@ -1,0 +1,2 @@
+Hola Gente estamos en un nuevo tutorial de programacion, 
+les vamos a mostrar como se crea un RPC
